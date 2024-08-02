@@ -9,7 +9,7 @@ import java.util.Map;
 // import org.bouncycastle.asn1.eac.EACObjectIdentifiers;
 // import org.bouncycastle.asn1.nist.NISTObjectIdentifiers;
 // import org.bouncycastle.asn1.sec.SECObjectIdentifiers;
-// import org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import com.android.internal.org.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
 // END Android-removed: Unsupported algorithms
 import com.android.internal.org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 import com.android.internal.org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
@@ -199,12 +199,16 @@ public class EC
             }
             
             provider.addAlgorithm("KeyFactory.EC", PREFIX + "KeyFactorySpi$EC");
+            */
             provider.addAlgorithm("KeyFactory.ECDSA", PREFIX + "KeyFactorySpi$ECDSA");
+            /*
             provider.addAlgorithm("KeyFactory.ECDH", PREFIX + "KeyFactorySpi$ECDH");
             provider.addAlgorithm("KeyFactory.ECDHC", PREFIX + "KeyFactorySpi$ECDHC");
             
             provider.addAlgorithm("KeyPairGenerator.EC", PREFIX + "KeyPairGeneratorSpi$EC");
+            */
             provider.addAlgorithm("KeyPairGenerator.ECDSA", PREFIX + "KeyPairGeneratorSpi$ECDSA");
+            /*
             provider.addAlgorithm("KeyPairGenerator.ECDH", PREFIX + "KeyPairGeneratorSpi$ECDH");
             provider.addAlgorithm("KeyPairGenerator.ECDHWITHSHA1KDF", PREFIX + "KeyPairGeneratorSpi$ECDH");
             provider.addAlgorithm("KeyPairGenerator.ECDHC", PREFIX + "KeyPairGeneratorSpi$ECDHC");
@@ -217,8 +221,10 @@ public class EC
             provider.addAlgorithm("Cipher.ECIESwithDESEDE-CBC", PREFIX + "IESCipher$ECIESwithDESedeCBC");
             provider.addAlgorithm("Cipher.ECIESWITHDESEDE-CBC", PREFIX + "IESCipher$ECIESwithDESedeCBC");
 
+            */
             provider.addAlgorithm("Signature.ECDSA", PREFIX + "SignatureSpi$ecDSA");
 
+            /*
             provider.addAlgorithm("Signature.SHA1withECDSA", PREFIX + "SignatureSpi$ecDSA");
             provider.addAlgorithm("Signature.NONEwithECDSA", PREFIX + "SignatureSpi$ecDSAnone");
 
@@ -229,8 +235,9 @@ public class EC
             provider.addAlgorithm("Alg.Alias.Signature.SHA1WithECDSA", "SHA1withECDSA");
             provider.addAlgorithm("Alg.Alias.Signature.ECDSAWithSHA1", "SHA1withECDSA");
             provider.addAlgorithm("Alg.Alias.Signature.1.2.840.10045.4.1", "SHA1withECDSA");
+            */
             provider.addAlgorithm("Alg.Alias.Signature." + TeleTrusTObjectIdentifiers.ecSignWithSha1, "ECDSA");
-
+            /*
             provider.addAlgorithm("Signature.ECDDSA", PREFIX + "SignatureSpi$ecDetDSA");
             provider.addAlgorithm("Signature.SHA1WITHECDDSA", PREFIX + "SignatureSpi$ecDetDSA");
             provider.addAlgorithm("Signature.SHA224WITHECDDSA", PREFIX + "SignatureSpi$ecDetDSA224");
@@ -250,7 +257,9 @@ public class EC
             provider.addAlgorithm("Alg.Alias.Signature.SHA512WITHDETECDSA", "SHA512WITHECDDSA");
 
             addSignatureAlgorithm(provider, "SHA224", "ECDSA", PREFIX + "SignatureSpi$ecDSA224", X9ObjectIdentifiers.ecdsa_with_SHA224);
+            */
             addSignatureAlgorithm(provider, "SHA256", "ECDSA", PREFIX + "SignatureSpi$ecDSA256", X9ObjectIdentifiers.ecdsa_with_SHA256);
+            /*
             addSignatureAlgorithm(provider, "SHA384", "ECDSA", PREFIX + "SignatureSpi$ecDSA384", X9ObjectIdentifiers.ecdsa_with_SHA384);
             addSignatureAlgorithm(provider, "SHA512", "ECDSA", PREFIX + "SignatureSpi$ecDSA512", X9ObjectIdentifiers.ecdsa_with_SHA512);
             addSignatureAlgorithm(provider, "SHA3-224", "ECDSA", PREFIX + "SignatureSpi$ecDSASha3_224", NISTObjectIdentifiers.id_ecdsa_with_sha3_224);
